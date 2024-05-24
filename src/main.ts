@@ -19,7 +19,6 @@ async function run(): Promise<void> {
     const deleteKeychainIfExists: boolean =
       core.getInput('delete-keychain-if-exists') === 'true'
 
-    //throw new Error(deleteKeychainIfExists+" abc");
     if (p12Filepath === '' && p12FileBase64 === '') {
       throw new Error(
         'At least one of p12-filepath or p12-file-base64 must be provided'
@@ -40,7 +39,7 @@ async function run(): Promise<void> {
 
     core.setOutput('keychain-password', keychainPassword)
     core.setSecret(keychainPassword)
-    core.setOutput('deleteKeychainIfExists', deleteKeychainIfExists)
+
     if (deleteKeychainIfExists) {
       try {
         await security.deleteKeychain(keychain)

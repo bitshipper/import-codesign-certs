@@ -1,4 +1,4 @@
-name: 'Import Code-Signing Certificates enhanced on self-hosted runners'
+name: 'Import Code-Signing Certificates'
 description: 'Imports a PKCS12 certificate and private key into a macOS Keychain.'
 author: 'Itty Bitty Apps Pty Ltd'
 inputs:
