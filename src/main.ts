@@ -38,7 +38,7 @@ async function run(): Promise<void> {
 
     core.setOutput('keychain-password', keychainPassword)
     core.setSecret(keychainPassword)
-
+    core.setOutput('deleteKeychainIfExists', deleteKeychainIfExists);
     if (deleteKeychainIfExists) {
       try {
         await security.deleteKeychain(keychain)
