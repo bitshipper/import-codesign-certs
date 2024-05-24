@@ -18,7 +18,7 @@ async function run(): Promise<void> {
     const p12Password: string = core.getInput('p12-password')
     const deleteKeychainIfExists: boolean = core.getInput('delete-keychain-if-exists') === 'true'
 
-    throw new Error(deleteKeychainIfExists+" abc");
+    //throw new Error(deleteKeychainIfExists+" abc");
     if (p12Filepath === '' && p12FileBase64 === '') {
       throw new Error(
         'At least one of p12-filepath or p12-file-base64 must be provided'
