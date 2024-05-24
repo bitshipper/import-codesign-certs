@@ -16,7 +16,8 @@ async function run(): Promise<void> {
     let p12Filepath: string = core.getInput('p12-filepath')
     const p12FileBase64: string = core.getInput('p12-file-base64')
     const p12Password: string = core.getInput('p12-password')
-    const deleteKeychainIfExists: boolean = core.getInput('delete-keychain-if-exists') === 'true'
+    const deleteKeychainIfExists: boolean =
+      core.getInput('delete-keychain-if-exists') === 'true'
 
     //throw new Error(deleteKeychainIfExists+" abc");
     if (p12Filepath === '' && p12FileBase64 === '') {
@@ -39,7 +40,7 @@ async function run(): Promise<void> {
 
     core.setOutput('keychain-password', keychainPassword)
     core.setSecret(keychainPassword)
-    core.setOutput('deleteKeychainIfExists', deleteKeychainIfExists);
+    core.setOutput('deleteKeychainIfExists', deleteKeychainIfExists)
     if (deleteKeychainIfExists) {
       try {
         await security.deleteKeychain(keychain)
