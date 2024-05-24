@@ -38,6 +38,12 @@ async function run(): Promise<void> {
     core.setOutput('keychain-password', keychainPassword)
     core.setSecret(keychainPassword)
 
+    try {
+      await security.deleteKeychain(keychain)
+    } catch (error) {
+      core.warning(`Failed to delete keychain: ${error}`)
+    }
+    
     await security.installCertIntoTemporaryKeychain(
       keychain,
       createKeychain,
